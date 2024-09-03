@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Secret Word
+este projeto foi realizado no aprendizado do curso de React do professor [Matheus Batisti](https://github.com/matheusbattisti/).
+O projeto **Secret Word** é um aplicativo React para um jogo simples de palavras secretas. O objetivo do jogo é adivinhar uma palavra secreta, um caractere por vez. Este repositório contém a implementação do jogo, bem como instruções sobre como configurar e executar o projeto.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Funcionalidades
 
-Currently, two official plugins are available:
+- Interface simples com um campo de entrada para adivinhar letras.
+- Feedback em tempo real sobre as letras adivinhadas.
+- Mensagens de vitória e derrota baseadas na adivinhação correta ou incorreta da palavra secreta.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Pré-requisitos
 
-## Expanding the ESLint configuration
+Certifique-se de ter o [Node.js](https://nodejs.org/) e [npm](https://www.npmjs.com/) instalados em sua máquina. Se você não tiver o Node.js instalado, ele incluirá o npm por padrão.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Uso
+Acesse a aplicação através do navegador.
+Digite uma letra no campo de entrada e envie para tentar adivinhar a palavra secreta.
+O jogo fornecerá feedback sobre as letras adivinhadas e mostrará uma mensagem de derrota quando o jogo terminar, o objetivo é somar mais pontos possíveis.
+Contribuição
+![image](https://github.com/user-attachments/assets/24a36fbd-858e-4ace-b0ee-54fdb07b5fbd)
+![image](https://github.com/user-attachments/assets/9b4dd721-1c29-4d6c-a300-de0fdea27c9b)
+![image](https://github.com/user-attachments/assets/c444e0b5-9d7f-4f7d-aa91-5a46e177ec7a)
+![image](https://github.com/user-attachments/assets/e1fac413-eb09-4b25-9876-7f2f88fd88c1)
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+Obrigado por conferir o projeto Secret Word! 🎉
