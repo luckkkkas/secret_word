@@ -1,0 +1,44 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.white-block{
+    background-color: antiquewhite;
+    color: black;
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    margin-right: 5px;
+}
+
+.yellow-block{
+    border: 25px solid yellow;
+    padding: 25px 25px;
+    display: flex;
+    width: max-content;
+    margin: 25px 0;
+}
+
+.input-w{
+    width: 50px;
+    height: 50px;
+    background-color: aliceblue;
+    border: 3px solid black;
+    margin: 10px;
+    color: black;
+    font-size: xx-large;
+    text-align: center;
+}
+.wrong-letters{
+    display: flex;
+}
+
+.goldText{
+    color: yellow;
+}
