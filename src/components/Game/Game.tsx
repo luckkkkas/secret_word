@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Game.css';
 
 interface Igame {
@@ -6,20 +6,24 @@ interface Igame {
   arrayWord: Array<string>,
   chances: number,
   tradeStage: () => void,
-  perderChance: () => void
+  perderChance: () => void,
+  alterSetScore: () => void,
+  newWord: () => void,
+  score: number
 }
 
 
-const Game = ({ dica, arrayWord, tradeStage, perderChance, chances }: Igame) => {
+const Game = ({ dica, arrayWord, tradeStage, perderChance, chances, alterSetScore, score, newWord }: Igame) => {
 
   const [handleLetter, setHandleLetter] = useState("");
   const [guessesLetter, setGuessesLetter] = useState<string[]>([]);
   const [wrongLetter, setWrongLetter] = useState<string[]>([]);
-  let [score, setScore] = useState<number>(0);
+  
 
   const verifyLetter = (e: any) => {
     e.preventDefault();
     verifyCorrectLetter(handleLetter);
+    inputref.current.focus();
   }
 
   const verifyCorrectLetter = (letter: string) => {
@@ -37,14 +41,15 @@ const Game = ({ dica, arrayWord, tradeStage, perderChance, chances }: Igame) => 
     setHandleLetter('')
   }
 
+  const inputref = useRef(null);
   
   // guessesLetter.map((e) => e == arrayWord.includes(e))
   useEffect(()=> {
     
     const check = arrayWord.every(t => guessesLetter.includes(t))
     if(check) {
-      setScore(score += 10);
-
+      alterSetScore()
+      newWord()
       tradeStage();
       setGuessesLetter([]);
       setWrongLetter([]);
@@ -66,7 +71,7 @@ const Game = ({ dica, arrayWord, tradeStage, perderChance, chances }: Igame) => 
         </div>
         <p>Tente adivinhar uma letra da palavra:</p>
         <form onSubmit={verifyLetter}>
-          <input type="text" className='input-w' required maxLength={1} onChange={(e) => setHandleLetter(e.target.value)} value={handleLetter} />
+          <input type="text" ref={inputref} className='input-w' required maxLength={1} onChange={(e) => setHandleLetter(e.target.value)} value={handleLetter} />
           <button> jogar!</button>
         </form>
         <div className="wrong-letters">

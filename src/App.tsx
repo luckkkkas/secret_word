@@ -22,16 +22,24 @@ function App() {
   const [pickCategory, setPickCategory] = useState('');
   const [wordArray, setWordArray] = useState<string[]>([]);
   let [chances,setChances] = useState(5);
+  let [score, setScore] = useState<number>(0);
 
   const perderChance = () =>{
     setChances(chances -= 1);
     console.log(chances)
+    
+    if(chances <= 0){
+      setStatus(stage[2].name);
+      setChances(5)
+     }
+  }
+  const alterSetScore = () => {
+    setScore(score += 10);
   }
 
-  // if(chances <= 0){
-  //   setStatus(stage[1].name);
-  //  }
-  
+  const newWord = () => {
+    setChances(5)
+  }
 
   const pickWordAndCategory = () => {
     const categories = Object.keys(wordList);
@@ -70,8 +78,11 @@ function App() {
       arrayWord={wordArray}
       perderChance={perderChance}
       chances={chances}
+      score={score}
+      alterSetScore={alterSetScore}
+      newWord={newWord}
     />}
-    {status === "gameEnd" && <GameEnd alterStage={tradeStage}/>}
+    {status === "gameEnd" && <GameEnd alterStage={tradeStage} score={score}/>}
     </>
   )
 }
